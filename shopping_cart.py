@@ -1,11 +1,20 @@
 class ShoppingCart:
     # write your code here
-    def __init__(self, emp_discount=None):
-      pass
+    def __init__(self, total = 0, emp_discount=None, items = []):
+        self.total = sum([i['Price']*i['Quantity'] for i in items])
+        self.emp_discount = emp_discount
+        self.items = items
+
     def add_item(self, name, price, quantity=1):
-       pass
+        self.items.append({'Item Name': name, 'Price': price, 'Quantity': quantity})
+        self.total += price * quantity
+        return self.total
+      
     def mean_item_price(self):
-       pass
+        price_list = []
+        price_list.append(i['Price'] for i in items)
+        mean = sum(price_list)/len(price_list)
+        return f"Mean Price: {mean}"
 
     def median_item_price(self):
         pass
